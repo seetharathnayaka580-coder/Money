@@ -1,0 +1,6 @@
+{
+  "name": "Money Management System",
+  "description": "Personal financial management system tailored for Pathum Sathintha (Farm Supervisor) tracking salary and OT cycles, Sampath Bank, Dialog Finance savings, cash wallet, fixed commitments, and manual income logging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

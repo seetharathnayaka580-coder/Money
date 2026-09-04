@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "User": {
+      "path": "/users/{userId}",
+      "description": "User profile containing salary schedule, job role, and app preferences",
+      "fields": {
+        "name": { "type": "string", "description": "Full name of user" },
+        "role": { "type": "string", "description": "User role or designation" },
+        "salaryDay": { "type": "number", "description": "Day of month salary is expected" },
+        "otWindowStart": { "type": "number", "description": "Start day of OT payment window" },
+        "otWindowEnd": { "type": "number", "description": "End day of OT payment window" },
+        "expectedBasicSalary": { "type": "number", "description": "Expected basic salary amount in LKR" },
+        "expectedOT": { "type": "number", "description": "Expected OT amount in LKR" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" }
+      }
+    },
+    "Account": {
+      "path": "/users/{userId}/accounts/{accountId}",
+      "description": "Financial accounts (Sampath Bank, Dialog Finance, Cash in Hand)",
+      "fields": {
+        "id": { "type": "string", "description": "Unique account identifier" },
+        "name": { "type": "string", "description": "Account display name" },
+        "bankName": { "type": "string", "description": "Bank or institution name" },
+        "accountNumber": { "type": "string", "description": "Account number or identifier" },
+        "balance": { "type": "number", "description": "Current balance in LKR" },
+        "type": { "type": "string", "description": "Account type: salary, main, savings, cash" },
+        "color": { "type": "string", "description": "Color theme tag" },
+        "description": { "type": "string", "description": "Usage description" }
+      }
+    },
+    "FixedObligation": {
+      "path": "/users/{userId}/obligations/{obligationId}",
+      "description": "Monthly recurring fixed commitments (Bike rental, Seat/Seettu, Mobile rental)",
+      "fields": {
+        "id": { "type": "string", "description": "Unique obligation identifier" },
+        "title": { "type": "string", "description": "Obligation title" },
+        "amount": { "type": "number", "description": "Monthly amount in LKR" },
+        "dueDay": { "type": "number", "description": "Day of month due" },
+        "category": { "type": "string", "description": "Expense category key" },
+        "isPaid": { "type": "boolean", "description": "Whether settled for current cycle" },
+        "paidDate": { "type": "string", "description": "Date settled (optional)" },
+        "paidFromAccount": { "type": "string", "description": "Account used to pay (optional)" },
+        "note": { "type": "string", "description": "Optional note" }
+      }
+    },
+    "Transaction": {
+      "path": "/users/{userId}/transactions/{transactionId}",
+      "description": "Financial ledger transactions (expense, income, transfer)",
+      "fields": {
+        "id": { "type": "string", "description": "Unique transaction identifier" },
+        "date": { "type": "string", "description": "Transaction date (YYYY-MM-DD)" },
+        "type": { "type": "string", "description": "expense, income, transfer" },
+        "amount": { "type": "number", "description": "Amount in LKR" },
+        "category": { "type": "string", "description": "Category identifier" },
+        "title": { "type": "string", "description": "Transaction description/title" },
+        "accountId": { "type": "string", "description": "Primary account involved" },
+        "toAccountId": { "type": "string", "description": "Target account for transfers" },
+        "note": { "type": "string", "description": "Additional user notes" },
+        "isFixed": { "type": "boolean", "description": "Whether linked to fixed commitment" }
+      }
+    }
+  }
+}
